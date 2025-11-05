@@ -10,77 +10,117 @@
         flex-direction: column;
         align-items: flex-start;
         padding: 2rem;
-        transition: right 0.3s ease-in-out;
+        transition: right 0.3s;
         gap: 1rem;
-        z-index: 1000;
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
     }
 
     .nav-menu.active {
         right: 0;
     }
 
-    .nav-link {
-        width: 100%;
-        padding: 1rem 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        font-size: 1.1rem;
-    }
-
-    .nav-link:last-child {
-        border-bottom: none;
-    }
-
     .search-container {
         width: 100%;
         margin: 1rem 0;
-        order: 1;
     }
 
     .search-container input {
         width: 100%;
-        padding: 0.8rem;
-        font-size: 1rem;
-    }
-
-    .cart-icon {
-        order: 2;
-        margin-top: 1rem;
     }
 
     .hamburger {
         display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 30px;
-        height: 21px;
-        cursor: pointer;
-        transition: transform 0.3s ease;
     }
 
-    .hamburger span {
-        display: block;
-        height: 3px;
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .developer-row {
+        flex-wrap: wrap;
+    }
+
+    .developer-card {
+        flex: 0 0 calc(50% - 1rem);
+        max-width: calc(50% - 1rem);
+    }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .hero {
+        height: 60vh;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .section-title h1, .section-title h2 {
+        font-size: 2rem;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .developer-card {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .cart-sidebar {
         width: 100%;
-        background-color: #333;
-        border-radius: 3px;
-        transition: all 0.3s ease;
+        right: -100%;
     }
 
-    /* Hamburger Animation */
-    .hamburger.active span:nth-child(1) {
-        transform: rotate(45deg) translate(6px, 6px);
+    .modal-content {
+        width: 95%;
+    }
+}
+
+/* Small Mobile Styles */
+@media (max-width: 480px) {
+    .nav-logo a {
+        font-size: 1.2rem;
     }
 
-    .hamburger.active span:nth-child(2) {
-        opacity: 0;
+    .hero-content h1 {
+        font-size: 1.8rem;
     }
 
-    .hamburger.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(6px, -6px);
+    .section-title h1, .section-title h2 {
+        font-size: 1.8rem;
     }
 
-    /* Developer Section Tablet */
+    .container {
+        width: 95%;
+    }
+
+    .product-card {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
     .developer-row {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 1.5rem;
@@ -96,28 +136,7 @@
     }
 }
 
-/* Mobile Styles */
-@media (max-width: 768px) {
-    .nav-menu {
-        width: 85%;
-        top: 65px;
-        height: calc(100vh - 65px);
-    }
-
-    .hamburger {
-        width: 25px;
-        height: 18px;
-    }
-
-    .hamburger.active span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-    }
-
-    .hamburger.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -5px);
-    }
-
-    /* Developer Section Mobile */
+@media (max-width: 480px) {
     .developer {
         padding: 3rem 0;
     }
@@ -128,63 +147,5 @@
     
     .developer-row {
         grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    
-    .developer-card {
-        max-width: 100%;
-        padding: 1.5rem;
-    }
-    
-    .developer-img {
-        width: 100px;
-        height: 100px;
-    }
-}
-
-/* Small Mobile Styles */
-@media (max-width: 480px) {
-    .nav-menu {
-        width: 90%;
-        top: 60px;
-        height: calc(100vh - 60px);
-        padding: 1.5rem;
-    }
-
-    .nav-link {
-        font-size: 1rem;
-        padding: 0.8rem 0;
-    }
-
-    .hamburger {
-        width: 22px;
-        height: 16px;
-    }
-
-    .hamburger span {
-        height: 2px;
-    }
-
-    /* Developer Section Small Mobile */
-    .developer {
-        padding: 2rem 0;
-    }
-    
-    .developer-card {
-        padding: 1rem;
-    }
-    
-    .developer-img {
-        width: 80px;
-        height: 80px;
-    }
-    
-    .developer-card h3 {
-        font-size: 1.1rem;
-    }
-    
-    .github-link {
-        padding: 0.4rem 1.2rem;
-        font-size: 0.8rem;
     }
 }
