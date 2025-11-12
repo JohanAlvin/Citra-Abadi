@@ -1,4 +1,5 @@
 /* Reset CSS */
+/* Menghapus margin & padding default, dan membuat box model lebih stabil */
 * {
     margin: 0;
     padding: 0;
@@ -6,23 +7,26 @@
 }
 
 /* Variables */
+/* Menyimpan warna utama supaya mudah diganti dari satu tempat saja */
 :root {
-    --primary-color: #333333;
-    --secondary-color: #555555;
-    --accent-color: #007bff;
-    --light-gray: #f5f5f5;
-    --white: #ffffff;
-    --dark-gray: #222222;
+    --primary-color: #333333;   /* Warna dasar gelap untuk navbar dan teks utama */
+    --secondary-color: #555555; /* Warna abu-abu sedang */
+    --accent-color: #007bff;    /* Warna biru sebagai aksen atau tombol */
+    --light-gray: #f5f5f5;      /* Warna abu muda untuk latar belakang section */
+    --white: #ffffff;           /* Warna putih */
+    --dark-gray: #222222;       /* Warna abu gelap untuk teks utama */
 }
 
 /* Typography */
+/* Atur font utama dan warna dasar seluruh halaman */
 body {
     font-family: 'Poppins', sans-serif;
-    line-height: 1.6;
-    color: var(--dark-gray);
-    background-color: var(--white);
+    line-height: 1.6;                 /* Spasi antarbaris agar mudah dibaca */
+    color: var(--dark-gray);          /* Warna teks utama */
+    background-color: var(--white);   /* Warna latar belakang halaman */
 }
 
+/* Atur tampilan heading agar tebal dan memiliki jarak bawah */
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
@@ -30,35 +34,39 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Container */
+/* Membatasi lebar konten agar tetap rapi di tengah */
 .container {
     width: 90%;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto;     /* Biar konten rata tengah */
     padding: 0 15px;
 }
 
 /* ===== NAVBAR FIX — Rapi & Stabil ===== */
+/* Mengatur navbar agar tetap di atas, punya bayangan, dan responsif */
 .navbar {
     background-color: var(--primary-color);
     padding: 1rem 2rem;
-    position: sticky;
+    position: sticky;          /* Menempel di atas saat discroll */
     top: 10px;
     margin: 0 auto;
     width: 95%;
     max-width: 1200px;
     border-radius: 15px;
-    z-index: 1000;
-    transition: all 0.3s ease;
+    z-index: 1000;             /* Supaya navbar selalu di depan elemen lain */
+    transition: all 0.3s ease; /* Efek halus saat berubah bentuk */
 }
 
+/* Saat user scroll, ubah sedikit tampilan navbar */
 .navbar.scrolled {
     background-color: rgba(51, 51, 51, 0.95);
-    backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px); /* Efek blur transparan */
     padding: 0.6rem 2rem;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
     border-radius: 12px;
 }
 
+/* Mengatur isi dalam navbar jadi sebaris dan rata kanan-kiri */
 .nav-container {
     display: flex;
     justify-content: space-between;
@@ -66,7 +74,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
 }
 
-/* Logo di kiri */
+/* Logo di kiri navbar */
 .nav-logo a {
     display: flex;
     align-items: center;
@@ -77,6 +85,7 @@ h1, h2, h3, h4, h5, h6 {
     text-decoration: none;
 }
 
+/* Gambar logo */
 .logo-img {
     height: 45px;
     width: auto;
@@ -86,12 +95,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Menu Navigasi */
+/* Mengatur link navigasi agar sejajar dan memiliki jarak antar item */
 .nav-menu {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1.5rem; /* Jarak antar menu */
 }
 
+/* Tampilan link navigasi */
 .nav-link {
     color: var(--white);
     text-decoration: none;
@@ -100,10 +111,12 @@ h1, h2, h3, h4, h5, h6 {
     transition: color 0.3s;
 }
 
+/* Efek hover dan aktif */
 .nav-link:hover, .nav-link.active {
     color: var(--accent-color);
 }
 
+/* Garis bawah animasi saat hover */
 .nav-link::after {
     content: "";
     position: absolute;
@@ -120,6 +133,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Search & Cart */
+/* Mengatur kolom pencarian */
 .search-container input {
     padding: 0.5rem 1rem;
     border: none;
@@ -128,6 +142,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 200px;
 }
 
+/* Warna dan posisi ikon keranjang */
 .cart-icon a {
     color: var(--white);
     text-decoration: none;
@@ -136,13 +151,14 @@ h1, h2, h3, h4, h5, h6 {
     gap: 0.5rem;
 }
 
-/* Hamburger untuk mobile */
+/* Hamburger untuk tampilan mobile */
 .hamburger {
-    display: none;
+    display: none; /* disembunyikan di desktop */
     flex-direction: column;
     cursor: pointer;
 }
 
+/* Garis-garis hamburger */
 .hamburger span {
     width: 25px;
     height: 3px;
@@ -152,6 +168,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Hero Section */
+/* Bagian awal halaman, biasanya gambar besar dan teks utama */
 .hero {
     margin-top: -80px;
     background: 
@@ -167,9 +184,10 @@ h1, h2, h3, h4, h5, h6 {
     color: #fff;
     position: relative;
     overflow: hidden;
-    animation: fadeInHero 1.5s ease-in-out;
+    animation: fadeInHero 1.5s ease-in-out; /* animasi muncul halus */
 }
 
+/* Tambahan pseudo-elemen untuk meniru background */
 .hero::before {
     content: "";                 
     position: absolute;          
@@ -180,21 +198,23 @@ h1, h2, h3, h4, h5, h6 {
     z-index: -1;                 
 }
 
-
+/* Judul hero */
 .hero-content h1 {
     font-size: 3.5rem;
     margin-bottom: 1rem;
     font-weight: 700;
     letter-spacing: 1px;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.4);
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.4); /* bayangan biar teks lebih jelas */
 }
 
+/* Paragraf hero */
 .hero-content p {
     font-size: 1.2rem;
     margin-bottom: 2rem;
     text-shadow: 1px 1px 6px rgba(0,0,0,0.4);
 }
 
+/* Tombol utama di hero */
 .hero .btn-primary {
     background-color: #007bff;
     color: #fff;
@@ -205,12 +225,14 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
+/* Efek hover tombol */
 .hero .btn-primary:hover {
     background-color: #0056b3;
     transform: translateY(-3px);
 }
 
 /* Buttons */
+/* Gaya umum tombol di seluruh halaman */
 .btn-primary {
     display: inline-block;
     background-color: var(--accent-color);
@@ -224,11 +246,13 @@ h1, h2, h3, h4, h5, h6 {
     cursor: pointer;
 }
 
+/* Efek hover tombol */
 .btn-primary:hover {
     background-color: #0056b3;
 }
 
 /* Section Title */
+/* Bagian judul setiap section (fitur, layanan, dst) */
 .section-title {
     text-align: center;
     margin-bottom: 3rem;
@@ -240,11 +264,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Features Section */
+/* Mengatur area fitur agar punya padding dan background abu muda */
 .features {
     padding: 5rem 0;
     background-color: var(--light-gray);
 }
 
+/* Ikon fitur */
 .feature-icon {
     width: 65px;
     height: auto;
@@ -253,12 +279,14 @@ h1, h2, h3, h4, h5, h6 {
     transition: transform 0.3s ease;
 }
 
+/* Grid fitur responsif */
 .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
 }
 
+/* Kartu fitur */
 .feature-item {
     text-align: center;
     padding: 2rem;
@@ -266,21 +294,24 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(15, 51, 75, 0.884);
     transition: all 0.4s ease;
-    opacity: 0;
+    opacity: 0; /* efek muncul saat discroll */
     transform: translateY(40px);
 }
 
+/* Saat elemen fitur muncul di layar */
 .feature-item.visible {
     opacity: 1;
     transform: translateY(0);
     transition: all 0.6s ease;
 }
 
+/* Efek hover kartu fitur */
 .feature-item:hover {
     transform: translateY(-10px) scale(1.03);
     box-shadow: 0 8px 20px rgba(29, 26, 26, 0.897);
 }
 
+/* Judul fitur */
 .feature-item h3 {
     color: var(--primary-color);
     margin-bottom: 1rem;
